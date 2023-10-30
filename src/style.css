@@ -15,7 +15,9 @@ li {
     font-size: 15px;
     margin: 0;
     padding: 0;
-    text-transform: capitalize;
+}
+li::first-letter{
+text-transform: capitalize;
 }
 ul {
     margin-left: 10px;
