@@ -12,40 +12,43 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container" id="border-weather-app">
-      <h1>New York</h1>
+      <h1 id="city">New York</h1>
       <ul>
-        <li>Sunday 00:00</li>
-        <li>Clear</li>
+        <li id="Current-time-and-day">Sunday 00:00</li>
+        <li id="desription">Clear</li>
       </ul>
       <div class="row" id="row">
         <div class="col-6">
           <div class="d-flex weather-temperature">
-          <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
-            alt="Sunny"
-            id="icon"
-          />
-          <div>
-          <strong id="temperature">0</strong><span class="units">℃ | <a href="#">℉</a></span>
-        </div>
-        </div>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
+              alt="Sunny"
+              id="icon"
+            />
+            <div>
+              <strong id="temperature">10</strong
+              ><span class="units">℃ | <a href="#">℉</a></span>
+            </div>
+          </div>
         </div>
         <div class="col-6">
           <ul>
-            <li>Precipitation: 0%</li>
-            <li>Humidity: 0%</li>
-            <li>Wind: 0km/h</li>
+            <!-- <li>Precipitation: 0%</li> -->
+            <li>Humidity:<span id="humidity"> 0 </span>%</li>
+            <li>Wind: <span id="wind"> 0 </span> km/h</li>
           </ul>
         </div>
       </div>
     </div>
     <small>
-          <a href="https://github.com/btv35/weather-app" target="_blank"
-            >Open-source code</a>
-          by Tanya B
+      <a href="https://github.com/btv35/weather-app" target="_blank"
+        >Open-source code</a
+      >
+      by Tanya B
     </small>
     <script src="src/app.js"></script>
   </body>
