@@ -24,9 +24,7 @@ function formateDate(timestemp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-
 function showCity(response) {
-  //   console.log(response.data);
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#desription");
@@ -34,6 +32,7 @@ function showCity(response) {
   let humidityElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
   cityElement.innerHTML = response.data.name;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
@@ -42,5 +41,3 @@ function showCity(response) {
 }
 
 axios.get(apiURL).then(showCity);
-
-// console.log(apiURL);
