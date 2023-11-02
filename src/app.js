@@ -1,7 +1,3 @@
-let apiKey = "9496e550c50357215588180769f9651c";
-let city = "Kyiv";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 function formateDate(timestemp) {
   let date = new Date(timestemp);
   let hours = date.getHours();
@@ -24,7 +20,7 @@ function formateDate(timestemp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function showCity(response) {
+function showDataOfTheCity(response) {
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#desription");
@@ -35,9 +31,18 @@ function showCity(response) {
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   descriptionElement.innerHTML = response.data.weather[0].description;
-  windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed * 3.6)} km/h`;
+  humidityElement.innerHTML = `${response.data.main.humidity} %`;
   dateElement.innerHTML = formateDate(response.data.dt * 1000);
 }
 
-axios.get(apiURL).then(showCity);
+function searchForTheCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-form-value").value;
+  let apiKey = "9496e550c50357215588180769f9651c";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showDataOfTheCity);
+}
+
+let searchFormElement = document.querySelector("#search-button");
+searchFormElement.addEventListener("click", searchForTheCity);

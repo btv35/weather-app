@@ -16,10 +16,26 @@
   </head>
   <body>
     <div class="container" id="border-weather-app">
-      <h1 id="city">New York</h1>
+      <div class="row">
+        <div class="col">
+          <form>
+            <input
+              type="search"
+              class="searchField"
+              id="search-form-value"
+              placeholder="Enter the city"
+              size="40"
+            />
+          </form>
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-primary" id="search-button">Search</button>
+        </div>
+      </div>
+      <h1 id="city"></h1>
       <ul>
-        <li>Last updated at <span id="date">Sunday 05:00</span></li>
-        <li id="desription">Clear</li>
+        <li>Last updated at <span id="date"></span></li>
+        <li id="desription"></li>
       </ul>
       <div class="row" id="row">
         <div class="col-6">
@@ -30,16 +46,19 @@
               id="icon"
             />
             <div>
-              <strong id="temperature">10</strong
+              <strong id="temperature"></strong
               ><span class="units">℃ | <a href="#">℉</a></span>
             </div>
           </div>
         </div>
         <div class="col-6">
           <ul>
-            <!-- <li>Precipitation: 0%</li> -->
-            <li>Humidity:<span id="humidity"> 0 </span>%</li>
-            <li>Wind: <span id="wind"> 0 </span> km/h</li>
+            <li>
+              Humidity: <strong><span id="humidity"></span></strong>
+            </li>
+            <li>
+              Wind: <strong><span id="wind"></span></strong>
+            </li>
           </ul>
         </div>
       </div>
