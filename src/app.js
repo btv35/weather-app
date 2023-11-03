@@ -21,26 +21,33 @@ function formateDate(timestemp) {
   return `${day} ${hours}:${minutes}`;
 }
 function showDataOfTheCity(response) {
+  console.log(response);
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#desription");
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
-  cityElement.innerHTML = response.data.name;
+  let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  descriptionElement.innerHTML = response.data.weather[0].description;
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  descriptionElement.innerHTML = response.data.condition.description;
   windElement.innerHTML = `${Math.round(response.data.wind.speed * 3.6)} km/h`;
-  humidityElement.innerHTML = `${response.data.main.humidity} %`;
-  dateElement.innerHTML = formateDate(response.data.dt * 1000);
+  humidityElement.innerHTML = `${response.data.temperature.humidity} %`;
+  dateElement.innerHTML = formateDate(response.data.time * 1000);
+  cityElement.innerHTML = response.data.city;
+  iconElement.innerHTML =`<img 
+                         src="${response.data.condition.icon_url}"
+                         alt="Sunny"
+                         class="weather-app-icon"
+                          />`;
 }
 
 function searchForTheCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-form-value").value;
-  let apiKey = "9496e550c50357215588180769f9651c";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "858070b76b6bf49185ceeoc8a2f8ct34";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(showDataOfTheCity);
 }
 

@@ -31,16 +31,14 @@ form {
   line-height: 30px;
   
 }
-.weather-temperature img {
-  display: inline-block;
-  height: 60px;
-  margin-right: 5px;
-  vertical-align: top;
+.weather-app-icon{
+  width: 88px;
+  height: 88px;
 }
-.weather-temperature strong {
+#temperature {
   color: rgb(33, 33, 33);
-  font-size: 60px;
-  line-height: 1;
+  font-size: 70px;
+  line-height: 68px;
   font-weight: 400;
 }
 .weather-temperature .units {
