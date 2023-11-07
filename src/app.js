@@ -21,7 +21,6 @@ function formateDate(timestemp) {
   return `${day} ${hours}:${minutes}`;
 }
 function showDataOfTheCity(response) {
-  console.log(response);
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#desription");

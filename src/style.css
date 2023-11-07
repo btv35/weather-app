@@ -64,9 +64,6 @@ form {
 #search-button {
   background-color: rgb(86, 34, 208);
 }
-#humidity{
-  color: rgb(208, 34, 170);
-}
-#wind{
+.weather-app-details strong{
   color: rgb(208, 34, 170);
 }
