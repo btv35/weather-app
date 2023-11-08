@@ -16,24 +16,16 @@
   </head>
   <body>
     <div class="container" id="border-weather-app">
-      <div class="row">
-        <div class="col">
-          <form>
+          <form class="search-form" id="search-form">
             <input
               type="search"
               class="searchField"
               id="search-form-value"
               placeholder="Enter the city..."
-              size="40"
+              size="45"
             />
+            <input type="submit" value="Search" class="search-button" />
           </form>
-        </div>
-        <div class="col-4">
-          <button type="button" class="btn btn-primary" id="search-button">
-            Search
-          </button>
-        </div>
-      </div>
       <h1 id="city"></h1>
       <ul>
         <li>Last updated at <span id="date"></span></li>
@@ -60,26 +52,8 @@
           </ul>
         </div>
       </div>
-      <div class="weather-forecast">
-        <div class="row">
-          <div class="col-2">
-            <div class="weather-forecast-date">
-            Thu
-            </div> 
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" 
-            alt=""
-            width="42"
-            />
-            <div class="weather-forecast-temperature">
-              <span class="weather-forecast-temperature-max">
-            11°
-                </span>
-                <span class="weather-forecast-temperature-min">
-            9°  </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- <div class="weather-forecast" id="forecast">
+      </div> -->
     </div>
     <small>
       <a href="https://github.com/btv35/weather-app" target="_blank"

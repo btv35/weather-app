@@ -51,6 +51,14 @@ form {
 .weather-temperature a {
   text-decoration: none;
 }
+.search-button{
+  background-color: #981f96;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 3px 10px;
+  margin-left: 10px;
+}
 #border-weather-app {
   max-width: 600px;
   margin: 15px;
@@ -68,17 +76,24 @@ form {
   color: rgb(208, 34, 170);
 }
 .weather-forecast {
+  display: flex;
   margin-top: 20px;
-  text-align: center;
+  justify-content: space-around;
   color: #4d4949;
 }
 .weather-forecast-date {
+  text-align: center;
+  color: rgba(7, 4, 24, 0.4);
   font-size: 16px;
-  opacity: 0.5;
+  margin-bottom: 10px;
 }
-.weather-forecast-temperature{
-  font-size: 13px;
+.weather-forecast-temperatures{
+  font-size: 15px;
 }
 .weather-forecast-temperature-min{
   opacity: 0.5;
+}
+.weather-forecast-icon{
+  font-size: 38px;
+  text-align: center;
 }
