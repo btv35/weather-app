@@ -40,6 +40,7 @@ function showDataOfTheCity(response) {
                          alt="Sunny"
                          class="weather-app-icon"
                           />`;
+  getForecast(response.data.city);
 }
 
 function searchForTheCity(event) {
@@ -50,28 +51,47 @@ function searchForTheCity(event) {
   axios.get(apiURL).then(showDataOfTheCity);
 }
 
-// function displayForecast () {
-// let forecastElement = document.querySelector("#forecast");
+function formateDay(timestemp) {
+  let date = new Date (timestemp * 1000);
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-// let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'];
-// let forecastHTML = "";
+  return days[date.getDay()];
+}
 
-// days.forEach(function(day) {
-//   forecastHTML =
-//     forecastHTML +
-//     `<div class="weather-forecast-day">
-//     <div class="weather-forecast-date">${day}</div>
-//     <div class="weather-forecast-icon">☁</div>
-//     <div class="weather-forecast-temperatures">
-//         <strong>11°</strong>
-//         <strong>9°</strong> 
-//       </div>
-// </div>`;
-// });
-// forecastElement.innerHTML = forecastHTML;
-// }
+function getForecast(city) {
+  let apiKey = "858070b76b6bf49185ceeoc8a2f8ct34";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
+}
+
+function displayForecast (response) {
+  console.log(response.data);
+let forecastElement = document.querySelector("#forecast");
+
+
+let forecastHTML = "";
+
+response.data.daily.forEach(function(day, index) {
+  if (index < 5) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="weather-forecast-day">
+    <div class="weather-forecast-date">${formateDay(day.time)}</div>
+    
+    <img src="${day.condition.icon_url}" class="weather-forecast-icon"/>
+    
+    <div class="weather-forecast-temperatures">
+        <strong>${Math.round(day.temperature.maximum)}°</strong>
+        ${Math.round(day.temperature.minimum)}° 
+      </div>
+</div>`;
+  }
+});
+forecastElement.innerHTML = forecastHTML;
+}
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchForTheCity);
 
-// displayForecast();
+
+getForecast('Rome');

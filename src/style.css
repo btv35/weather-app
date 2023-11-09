@@ -88,12 +88,14 @@ form {
   margin-bottom: 10px;
 }
 .weather-forecast-temperatures{
-  font-size: 15px;
+  font-size: 14px;
+  color: #D022AA;
+  text-align: center;
 }
 .weather-forecast-temperature-min{
   opacity: 0.5;
 }
 .weather-forecast-icon{
-  font-size: 38px;
+  width: 60px;
   text-align: center;
 }
